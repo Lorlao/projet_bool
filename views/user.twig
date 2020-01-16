@@ -1,0 +1,33 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+  <h1>Mon profil !</h1>
+
+  <form id='editUser' method=''>
+    <label>Nom</label>
+    <input type='text' name='name' placeholder={{theUser.name}}>
+
+    <label>Prénom</label>
+    <input type='text' name='name' placeholder={{theUser.firstname}}>
+
+    <label>Adress</label>
+    <input type='text' name='name' placeholder={{theUser.adress}}>
+
+    <label>Code Postal</label>
+    <input type='text' name='int' placeholder={{theUser.postalcode}}>
+
+    <label>Ville</label>
+    <input type='text' name='name' placeholder={{theUser.city}}>
+
+    <label>Email</label>
+    <input type='text' name='email' placeholder={{theUser.email}}>
+
+    <label>Mot de passe</label>
+    <input type='password' name='password' placeholder={{theUser.password}}>
+
+    <button type='submit'>Modifier</button>
+  </form>
+
+
+{% endblock %}

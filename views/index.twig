@@ -1,0 +1,83 @@
+{% extends 'layout.twig' %}
+
+{% block body %}  
+  
+  {% if user.name %}
+  <a href='/users/logout'>Se Déconnecter</a>
+  {% else %}
+  <a href='/users/login'>Se Connecter</a>
+  {% endif %}
+  <br>
+  <br>
+  <label>Rechercher</label>
+  <input type='name' id='search'>
+  <br>
+  <br>  
+  {#
+  {%for tweet in posts%}
+  <table class="table table-striped">
+      <th scope="row">{{tweet.tweet}}</th>
+      <tr>{{tweet.user.name}}</tr>
+      <tr>{{tweet.date | date("m/d/Y")}}</tr>
+      <tr><a href='/tweets/{{tweet._id}}'>_Modifier_</a></tr>
+      <tr><a href="/tweets/{{tweet._id}}/comments" class="card-link">Commentaire_</a></tr>
+      
+  </table>
+  {%endfor%}  
+  #}
+
+  <h1>INSCRIPTION</h1>
+
+  <form id='formUser' method='POST'>
+
+  <label>Nom</label>
+  <br>
+  <input name='name' type='text'>
+  <br><br>
+
+  <label>Prénom</label>
+  <br>
+  <input name='firstname' type='text'>
+  <br><br>
+
+  <label>Adresse</label>
+  <br>
+  <input name='adress' type='text'>
+  <br><br>
+
+  <label>Code Postal</label>
+  <br>
+  <input name='postalcode' type='number'>
+  <br><br>
+
+  <label>Ville</label>
+  <br>
+  <input name='city' type='text'>
+  <br><br>
+
+  <label>Email</label>
+  <br>
+  <input name='email' type='email'>
+  <br><br>
+
+  <label>Mot de passe</label>
+  <br>
+  <input name='password' type='password'>
+  <br><br>
+
+  <button type='submit'>Inscription</button>
+  </form>
+  <br><br>
+
+  <h1>{{title}}</h1>
+
+  {% for users in list %}
+    <table class="table table-striped">
+        <th scope="row"><a href='/{{users._id}}'>{{users.name}}</a></th>
+        <tr>{{users.firstname}}</tr>
+        <tr>{{users.name}}</tr>
+        <tr>{{users.date | date("m/d/Y")}}</tr>
+    </table>
+  {% endfor %}
+
+{% endblock %}
